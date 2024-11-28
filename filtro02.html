@@ -3,49 +3,60 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta nome="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Filtro em Input de Pesquisa - 01</title>
+  <meta item="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filtro em Input de Pesquisa - 02</title>
 </head>
 
 <body>
   <input type="text" id="entrada" />
+  <button onclick="gerarLista()">OK</button>
 
   <ul id="lista"></ul>
 
   <script>
-    const lista = document.getElementById('lista'); 
-    let elementosArray = []; 
-    
-    input.addEventListener('keydown', (event) => { 
-      if (event.key === 'Enter') { 
-        const elemento = input.value.trim(); 
-        if (elemento) { 
-          elementosArray.push(elemento); 
-          input.value = ''; 
-          atualizarLista(); 
-        } 
-      } 
-    }); 
-    
-    function atualizarLista() { 
-      lista.innerHTML = ''; 
-      elementosArray.forEach(elemento => { 
-        const li = document.createElement('li'); 
-        li.textContent = elemento; 
-        lista.appendChild(li); 
-      }); 
+    var vetor = [];
+    const entrada = document.getElementById('entrada');
+    const lista = document.getElementById('lista');
+
+    function gerarLista() {
+      adicionarElemento();
+      atualizarLista();
     }
 
-    var input = document.getElementById("entrada");
-    input.onkeyup = function () {
-      var filtro = input.value.toLowerCase();
-      var itensDaListaNaoOrdenada = document.getElementsByClassName("item");
-      for (var i = 0; i < itensDaListaNaoOrdenada.length; i++) {
-        var nome = itensDaListaNaoOrdenada[i].innerHTML;
-        if (nome.toLowerCase().includes(filtro))
-          itensDaListaNaoOrdenada[i].style.display = "list-item";
+    function adicionarElemento() {
+      const elemento = entrada.value.trim();
+      if (elemento) {
+        vetor.push(elemento);
+        entrada.value = '';
+        atualizarLista();
+      }
+    }
+
+    function atualizarLista() {
+      const lista = document.getElementById('lista');
+      vetor.forEach(elemento => {
+        const li = document.createElement('li');
+        li.innerHTML = elemento.trim();
+        lista.appendChild(li);
+      });
+    }
+
+    entrada.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        gerarLista();
+      }
+    });
+
+    entrada.onkeyup = function () {
+      var elemento = entrada.value.toLowerCase();
+      var itens = document.getElementsByTagName("li");
+
+      for (var i = 0; i < itens.length; i++) {
+        var item = itens[i].innerHTML;
+        if (item.toLowerCase().includes(elemento))
+          itens[i].style.display = "list-item";
         else
-          itensDaListaNaoOrdenada[i].style.display = "none";
+          itens[i].style.display = "none";
       }
     };
   </script>
