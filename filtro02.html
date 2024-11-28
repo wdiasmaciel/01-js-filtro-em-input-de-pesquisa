@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta nome="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filtro em Input de Pesquisa - 01</title>
+</head>
+
+<body>
+  <input type="text" id="entrada" />
+
+  <ul id="lista"></ul>
+
+  <script>
+    const lista = document.getElementById('lista'); 
+    let elementosArray = []; 
+    
+    input.addEventListener('keydown', (event) => { 
+      if (event.key === 'Enter') { 
+        const elemento = input.value.trim(); 
+        if (elemento) { 
+          elementosArray.push(elemento); 
+          input.value = ''; 
+          atualizarLista(); 
+        } 
+      } 
+    }); 
+    
+    function atualizarLista() { 
+      lista.innerHTML = ''; 
+      elementosArray.forEach(elemento => { 
+        const li = document.createElement('li'); 
+        li.textContent = elemento; 
+        lista.appendChild(li); 
+      }); 
+    }
+
+    var input = document.getElementById("entrada");
+    input.onkeyup = function () {
+      var filtro = input.value.toLowerCase();
+      var itensDaListaNaoOrdenada = document.getElementsByClassName("item");
+      for (var i = 0; i < itensDaListaNaoOrdenada.length; i++) {
+        var nome = itensDaListaNaoOrdenada[i].innerHTML;
+        if (nome.toLowerCase().includes(filtro))
+          itensDaListaNaoOrdenada[i].style.display = "list-item";
+        else
+          itensDaListaNaoOrdenada[i].style.display = "none";
+      }
+    };
+  </script>
+</body>
+
+</html>
