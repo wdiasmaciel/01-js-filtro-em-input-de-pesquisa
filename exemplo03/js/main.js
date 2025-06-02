@@ -59,10 +59,8 @@ function filtrar(termo) {
     for (var i = 0; i < itens.length; i++) {
         var item = itens[i].innerHTML;
 
-        if (item.toLowerCase().includes(termo)){
+        if (item.toLowerCase().includes(termo))
             itens[i].style.display = "flex";
-            itens[i].style.backgroundColor = "rgb(237, 237, 249)";
-        }
         else
             itens[i].style.display = "none";
     }

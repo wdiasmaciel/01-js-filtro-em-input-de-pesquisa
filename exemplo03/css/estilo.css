@@ -31,6 +31,10 @@ box-sizing: border-box;
      /* vh: viewport height (altura da janela de visualização). */
  }
 
+ form {
+     margin: 1rem;
+ }
+
  li {
      display: flex;
      justify-content: space-evenly;
@@ -41,11 +45,19 @@ box-sizing: border-box;
      text-decoration: none;
  }
 
- li:nth-child(even){
-    background-color: rgb(237, 237, 249);
+ li:nth-child(even) {
+     background-color: rgb(237, 237, 249);
  }
 
  div {
      width: 10rem;
      padding: 1rem;
+ }
+
+ input {
+     padding: .6rem;
+ }
+
+ button {
+     padding: .6rem 3rem;
  }
