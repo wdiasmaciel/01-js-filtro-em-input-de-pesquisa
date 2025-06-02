@@ -21,13 +21,13 @@
     var entrada = document.getElementById("entrada");
 
     entrada.onkeyup = function () {
-      var termoDeBusca = entrada.value.toLowerCase();
+      var termo = entrada.value.toLowerCase();
       var itens = document.getElementsByTagName("li");
 
       for (var i = 0; i < itens.length; i++) {
         var item = itens[i].innerHTML;
 
-        if (item.toLowerCase().includes(termoDeBusca))
+        if (item.toLowerCase().includes(termo))
           itens[i].style.display = "list-item";
         else
           itens[i].style.display = "none";

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta item="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filtro em Input de Pesquisa - 02</title>
+</head>
+
+<body>
+    <input type="text" id="entrada" />
+    <button onclick="adicionarElemento()">OK</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        var vetor = [];
+        const entrada = document.getElementById('entrada');
+        const lista = document.getElementById('lista');
+
+        function adicionarElemento() {
+            const termo = entrada.value.trim();
+            if (termo) {
+                vetor.push(termo);
+                entrada.value = '';
+                atualizarLista();
+            }
+        }
+
+        function atualizarLista() {
+            const lista = document.getElementById('lista');
+            lista.innerHTML = "";
+            vetor.forEach(elemento => {
+                const li = document.createElement('li');
+                li.innerHTML = elemento.trim();
+                lista.appendChild(li);
+            });
+        }
+
+        entrada.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                adicionarElemento();
+            }
+        });
+
+        entrada.onkeyup = function () {
+            var termo = entrada.value.toLowerCase();
+            var itens = document.getElementsByTagName("li");
+
+            for (var i = 0; i < itens.length; i++) {
+                var item = itens[i].innerHTML;
+                
+                if (item.toLowerCase().includes(termo))
+                    itens[i].style.display = "list-item";
+                else
+                    itens[i].style.display = "none";
+            }
+        };
+    </script>
+</body>
+
+</html>
