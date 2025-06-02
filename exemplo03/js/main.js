@@ -5,13 +5,16 @@ import imprimirDadosDaLista from "./imprimir.js";
 const produto = document.getElementById("produto");
 const botao = document.getElementById("botaoEnviar");
 
-botao. addEventListener("click", () => adicionar());
+botao.addEventListener("click", (event) => {
+    event.preventDefault();
+    adicionar();
+});
 
-function adicionar() {
+async function adicionar() {
     const dados = lerDadosDoFormulario();
     if (dados) {
-        enviar(dados);
-        let vetor = buscar();
+        await enviar(dados);
+        let vetor = await buscar();
         atualizarLista(vetor);
     } else alert("dados não enviados: " + dados)
 }

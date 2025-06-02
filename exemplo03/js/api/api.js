@@ -14,8 +14,6 @@ const urlProdutos = url + "produtos";
   Pode haver várias exportações nomeadas em um mesmo arquivo.
 */
 export async function enviar(dados) {
-  alert(urlProdutos);
-  alert("enviar: " + dados.produto);
   try {
     const resposta = await fetch(urlProdutos, {
       method: 'POST',
@@ -49,13 +47,11 @@ export async function enviar(dados) {
 export async function buscar() {
   try {
     const resposta = await fetch(urlProdutos);
-          alert(resposta);
 
     if (!resposta.ok) {
       throw new Error('Erro no envio dos dados!');
     }
 
-    console.log(resposta.json());
     return await resposta.json();
   } catch (erro) {
     console.error('Erro ao ler dados:', erro);
