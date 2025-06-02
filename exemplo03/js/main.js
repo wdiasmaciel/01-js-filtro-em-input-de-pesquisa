@@ -2,6 +2,11 @@ import { enviar, buscar } from "./api/api.js";
 import lerDadosDoFormulario from "./ler.js";
 import imprimirDadosDaLista from ".imprimir.js";
 
+const produto = document.getElementById("produto");
+const botao = document.getElementsByTagName("button");
+
+botao.addEventListener("click", adicionar);
+
 function adicionar() {
     const dados = lerDadosDoFormulario();
     if (dados) {
@@ -22,13 +27,13 @@ function atualizarLista(vetor) {
     });
 }
 
-entrada.addEventListener('keydown', (event) => {
+produto.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         adicionarElemento();
     }
 });
 
-entrada.onkeyup = function () {
+produto.onkeyup = function () {
     var termo = produto.value.toLowerCase();
     var itens = document.getElementsByClassName("nome");
 
