@@ -1,11 +1,11 @@
 import { enviar, buscar } from "./api/api.js";
 import lerDadosDoFormulario from "./ler.js";
-import imprimirDadosDaLista from ".imprimir.js";
+import imprimirDadosDaLista from "./imprimir.js";
 
 const produto = document.getElementById("produto");
-const botao = document.getElementsByTagName("button");
+const botao = document.getElementById("botaoEnviar");
 
-botao.addEventListener("click", adicionar);
+botao. addEventListener("click", () => adicionar());
 
 function adicionar() {
     const dados = lerDadosDoFormulario();
@@ -13,7 +13,7 @@ function adicionar() {
         enviar(dados);
         let vetor = buscar();
         atualizarLista(vetor);
-    }
+    } else alert("dados não enviados: " + dados)
 }
 
 function atualizarLista(vetor) {

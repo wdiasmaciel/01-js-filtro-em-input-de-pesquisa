@@ -1,4 +1,5 @@
-const url = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev:3000/";
+const url = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev/";
+const urlProdutos = url + "produtos";
 
 /*
   Exportação nomeada:
@@ -13,24 +14,24 @@ const url = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picar
   Pode haver várias exportações nomeadas em um mesmo arquivo.
 */
 export async function enviar(dados) {
-    const urlProdutos = url + "produtos";
+  alert(urlProdutos);
+  alert("enviar: " + dados.produto);
+  try {
+    const resposta = await fetch(urlProdutos, {
+      method: 'POST',
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      body: JSON.stringify(dados),
+    });
 
-    try {
-        const resposta = await fetch(urlProdutos, {
-            method: 'POST',
-            headers: { "Content-type": "application/json; charset=UTF-8" },
-            body: JSON.stringify(dados),
-        });
-
-        if (!resposta.ok) {
-            throw new Error('Erro no envio dos dados!');
-        }
-
-        return await resposta.json();
-    } catch (erro) {
-        console.error('Erro ao enviar dados:', erro);
-        throw erro;
+    if (!resposta.ok) {
+      throw new Error('Erro no envio dos dados!');
     }
+
+    return await resposta.json();
+  } catch (erro) {
+    console.error('Erro ao enviar dados:', erro);
+    throw erro;
+  }
 }
 
 /*
@@ -46,18 +47,18 @@ export async function enviar(dados) {
   Pode haver várias exportações nomeadas em um mesmo arquivo.
 */
 export async function buscar() {
-    const urlProdutos = url + "produtos";
+  try {
+    const resposta = await fetch(urlProdutos);
+          alert(resposta);
 
-    try {
-        const resposta = await fetch(urlProdutos);
-
-        if (!resposta.ok) {
-            throw new Error('Erro no envio dos dados!');
-        }
-
-        return await resposta.json();
-    } catch (erro) {
-        console.error('Erro ao ler dados:', erro);
-        throw erro;
+    if (!resposta.ok) {
+      throw new Error('Erro no envio dos dados!');
     }
+
+    console.log(resposta.json());
+    return await resposta.json();
+  } catch (erro) {
+    console.error('Erro ao ler dados:', erro);
+    throw erro;
+  }
 }
