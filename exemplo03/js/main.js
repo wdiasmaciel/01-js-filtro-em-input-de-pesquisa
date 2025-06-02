@@ -44,7 +44,7 @@ produto.addEventListener('keydown', (event) => {
 
 produto.onkeyup = function () {
     var termo = produto.value.toLowerCase();
-    var itens = document.getElementsByClassName("nome");
+    var itens = document.getElementsByTagName("li");
 
     for (var i = 0; i < itens.length; i++) {
         var item = itens[i].innerHTML;
