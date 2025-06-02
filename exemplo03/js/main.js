@@ -3,6 +3,7 @@ import lerDadosDoFormulario from "./ler.js";
 import imprimirDadosDaLista from "./imprimir.js";
 
 const produto = document.getElementById("produto");
+const preco = document.getElementById("preco");
 const botao = document.getElementById("botaoEnviar");
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -13,6 +14,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 botao.addEventListener("click", (event) => {
     event.preventDefault();
     adicionar();
+});
+
+botao.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        adicionar();
+    }
 });
 
 async function adicionar() {
@@ -36,13 +43,10 @@ function atualizarLista(vetor) {
     });
 }
 
-produto.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        adicionarElemento();
-    }
-});
+produto.onkeyup = filtrar;
+preco.onkeyup = filtrar;
 
-produto.onkeyup = function () {
+function filtrar() {
     var termo = produto.value.toLowerCase();
     var itens = document.getElementsByTagName("li");
 
@@ -55,4 +59,3 @@ produto.onkeyup = function () {
             itens[i].style.display = "none";
     }
 };
-
