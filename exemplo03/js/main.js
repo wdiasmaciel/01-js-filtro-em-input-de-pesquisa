@@ -49,3 +49,8 @@ produto.onkeyup = function () {
             itens[i].style.display = "none";
     }
 };
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const vetor = await buscar();
+  atualizarLista(vetor);
+});
