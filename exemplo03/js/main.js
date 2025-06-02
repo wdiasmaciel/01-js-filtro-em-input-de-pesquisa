@@ -5,6 +5,11 @@ import imprimirDadosDaLista from "./imprimir.js";
 const produto = document.getElementById("produto");
 const botao = document.getElementById("botaoEnviar");
 
+window.addEventListener('DOMContentLoaded', async () => {
+    const vetor = await buscar();
+    atualizarLista(vetor);
+});
+
 botao.addEventListener("click", (event) => {
     event.preventDefault();
     adicionar();
@@ -51,7 +56,3 @@ produto.onkeyup = function () {
     }
 };
 
-window.addEventListener('DOMContentLoaded', async () => {
-    const vetor = await buscar();
-    atualizarLista(vetor);
-});

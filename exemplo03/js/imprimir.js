@@ -12,11 +12,9 @@
   Só pode haver uma exportação default por arquivo.
 */
 function imprimir(json){
-  return `<li>
-            <div class="id">ID: ${json.id}</div> 
-            <div class="nome">Nome: ${json.produto}</div> 
-            <div class="nascimento">Nascimento: ${json.preco}</div>
-          </li>`;
+  return `<div class="id">ID: ${json.id}</div> 
+          <div class="nome">Produto: ${json.produto}</div> 
+          <div class="nascimento">Preço: ${json.preco}</div>`;
 }
 
 export default imprimir;
