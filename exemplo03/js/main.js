@@ -16,7 +16,8 @@ async function adicionar() {
         await enviar(dados);
         let vetor = await buscar();
         atualizarLista(vetor);
-    } else alert("dados não enviados: " + dados)
+    } else
+        alert("Dados não enviados!");
 }
 
 function atualizarLista(vetor) {
@@ -51,6 +52,6 @@ produto.onkeyup = function () {
 };
 
 window.addEventListener('DOMContentLoaded', async () => {
-  const vetor = await buscar();
-  atualizarLista(vetor);
+    const vetor = await buscar();
+    atualizarLista(vetor);
 });
