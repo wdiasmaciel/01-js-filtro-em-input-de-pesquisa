@@ -43,11 +43,17 @@ function atualizarLista(vetor) {
     });
 }
 
-produto.onkeyup = filtrar;
-preco.onkeyup = filtrar;
-
-function filtrar() {
+produto.onkeyup = () => {
     var termo = produto.value.toLowerCase();
+    filtrar(termo)
+};
+
+preco.onkeyup = () => {
+    var termo = preco.value.toLowerCase();
+    filtrar(termo)
+};
+
+function filtrar(termo) {
     var itens = document.getElementsByTagName("li");
 
     for (var i = 0; i < itens.length; i++) {
