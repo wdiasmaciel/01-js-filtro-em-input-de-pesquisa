@@ -41,6 +41,10 @@ box-sizing: border-box;
      text-decoration: none;
  }
 
+ li:nth-child(even){
+    background-color: rgb(237, 237, 249);
+ }
+
  div {
      width: 10rem;
      padding: 1rem;
