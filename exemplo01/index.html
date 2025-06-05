@@ -21,7 +21,7 @@
     var entrada = document.getElementById("entrada");
 
     entrada.onkeyup = function () {
-      var termo = entrada.value.toLowerCase();
+      var termo = entrada.value.toLowerCase().trim();
       var itens = document.getElementsByTagName("li");
 
       for (var i = 0; i < itens.length; i++) {

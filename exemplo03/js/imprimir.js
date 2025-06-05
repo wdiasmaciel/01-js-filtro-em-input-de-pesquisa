@@ -5,7 +5,7 @@
   }
   export default imprimir;
 
-  A função é exportada como exportação padrão (default export).
+  A função é exportada como exportação padrão (export default).
   Pode ser importada com qualquer nome:
   import qualquerNome from './imprimir.js';
 

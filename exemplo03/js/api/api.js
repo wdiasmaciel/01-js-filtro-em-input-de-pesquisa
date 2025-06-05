@@ -7,9 +7,9 @@ const urlProdutos = url + "produtos";
     // ...
   }
 
-  Exportação da função enviar() com um nome explícito.
+  Exportar a função enviar() com um nome explícito.
   Essa função deve ser importada usando exatamente esse nome:
-  import { enviar } from './api.js';
+  import { enviar } from "./api/api.js";
   As chaves {} são obrigatórias em exportações nomeadas.
   Pode haver várias exportações nomeadas em um mesmo arquivo.
 */
@@ -40,7 +40,7 @@ export async function enviar(dados) {
 
   Exportação da função buscar() com um nome explícito.
   Essa função deve ser importada usando exatamente esse nome:
-  import { buscar } from './api.js';
+  import { buscar } from "./api/api.js";
   As chaves {} são obrigatórias em exportações nomeadas.
   Pode haver várias exportações nomeadas em um mesmo arquivo.
 */
