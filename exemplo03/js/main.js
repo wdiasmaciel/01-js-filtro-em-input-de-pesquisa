@@ -25,6 +25,7 @@ botao.addEventListener('keydown', (event) => {
 async function adicionar() {
     const dados = lerDadosDoFormulario();
     if (dados) {
+        console.log(dados);
         await enviar(dados);
         let vetor = await buscar();
         atualizarLista(vetor);

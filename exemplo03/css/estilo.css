@@ -49,6 +49,11 @@ box-sizing: border-box;
      background-color: rgb(237, 237, 249);
  }
 
+
+ li:nth-child(odd) {
+     background-color: rgb(244, 201, 137);
+ }
+
  div {
      width: 10rem;
      padding: 1rem;
