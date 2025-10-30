@@ -3,7 +3,8 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
-     /* Faz com que largura e altura incluam bordas e padding no cálculo. */
+     /* Faz com que as propriedades largura e altura 
+        incluam bordas e padding no cálculo. */
  }
 
  /*

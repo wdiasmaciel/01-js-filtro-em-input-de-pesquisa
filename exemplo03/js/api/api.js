@@ -1,5 +1,5 @@
-const url = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev/";
-const urlProdutos = url + "produtos";
+const replit = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev/";
+const url = replit + "produtos";
 
 /*
   Exportação nomeada:
@@ -15,7 +15,7 @@ const urlProdutos = url + "produtos";
 */
 export async function enviar(dados) {
   try {
-    const resposta = await fetch(urlProdutos, {
+    const resposta = await fetch(url, {
       method: 'POST',
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify(dados),
@@ -46,7 +46,7 @@ export async function enviar(dados) {
 */
 export async function buscar() {
   try {
-    const resposta = await fetch(urlProdutos);
+    const resposta = await fetch(url);
 
     if (!resposta.ok) {
       throw new Error('Erro no envio dos dados!');
