@@ -1,4 +1,4 @@
-const replit = "https://01c72ea2-dc83-4f76-b4e6-f998346028e2-00-1fmk7t8gu8uk4.picard.replit.dev/";
+const replit = "https://6a0f147d-da74-4ae1-b8ca-7a7828542734-00-h6nwxazwm4tw.worf.replit.dev:3000/";
 const url = replit + "produtos";
 
 /*

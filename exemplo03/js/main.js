@@ -2,7 +2,8 @@ import { enviar, buscar } from "./api/api.js";
 import lerDadosDoFormulario from "./ler.js";
 import imprimirDadosDaLista from "./imprimir.js";
 
-const produto = document.getElementById("produto");
+const nome = document.getElementById("nome");
+const quantidade = document.getElementById("quantidade");
 const preco = document.getElementById("preco");
 const botao = document.getElementById("botaoEnviar");
 
@@ -44,8 +45,13 @@ function atualizarLista(vetor) {
     });
 }
 
-produto.onkeyup = () => {
-    var termo = produto.value.toLowerCase();
+nome.onkeyup = () => {
+    var termo = nome.value.toLowerCase();
+    filtrar(termo)
+};
+
+quantidade.onkeyup = () => {
+    var termo = quantidade.value.toLowerCase();
     filtrar(termo)
 };
 
